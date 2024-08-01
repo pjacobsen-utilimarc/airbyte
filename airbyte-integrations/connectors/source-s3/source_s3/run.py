@@ -13,6 +13,7 @@ from source_s3.v4 import Config, Cursor, SourceS3, SourceS3StreamReader
 
 
 def get_source(args: List[str]):
+    print("test!!!")
     catalog_path = AirbyteEntrypoint.extract_catalog(args)
     config_path = AirbyteEntrypoint.extract_config(args)
     state_path = AirbyteEntrypoint.extract_state(args)
