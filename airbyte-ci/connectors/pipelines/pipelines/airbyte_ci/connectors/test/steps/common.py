@@ -759,5 +759,5 @@ class LiveTests(Step):
                 )
             )
 
-        container = container.with_exec(["poetry", "lock", "--no-update"]).with_exec(["poetry", "install"])
+        container = container.with_exec(["poetry", "install"])
         return container
