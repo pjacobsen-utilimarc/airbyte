@@ -690,7 +690,7 @@ class LiveTests(Step):
                 f"/tmp/{slugify(self.connector_image + ':' + self.target_version)}_container_id.txt", contents=str(target_container_id)
             )
         )
-
+        self.logger.info(f"self.context.ci_github_access_token.value exists? {bool(self.context.ci_github_access_token.value)}")
         if self.context.is_ci:
             container = (
                 container
