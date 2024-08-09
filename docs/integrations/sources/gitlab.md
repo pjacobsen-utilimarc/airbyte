@@ -96,6 +96,8 @@ This connector outputs the following streams:
 - [Project Labels](https://docs.gitlab.com/ee/api/labels.html)
 - [Epics](https://docs.gitlab.com/ee/api/epics.html) \(only available for GitLab Ultimate and GitLab.com Gold accounts. Stream Epics uses iid field as primary key for more convenient search and matching with UI. Iid is the internal ID of the epic, number of Epic on UI.\)
 - [Epic Issues](https://docs.gitlab.com/ee/api/epic_issues.html) \(only available for GitLab Ultimate and GitLab.com Gold accounts\)
+- [Issue Label Events](https://docs.gitlab.com/ee/api/resource_label_events.html#issues)
+- [Issue Weight Events](https://docs.gitlab.com/ee/api/resource_state_events.html#issues)
 
 ## Additional information
 
@@ -111,7 +113,8 @@ Gitlab has the [rate limits](https://docs.gitlab.com/ee/user/gitlab_com/index.ht
   <summary>Expand to review</summary>
 
 | Version | Date       | Pull Request                                             | Subject                                                                                                                                                                            |
-| :------ | :--------- | :------------------------------------------------------- | :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| :------ | :--------- |:---------------------------------------------------------| :--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| 4.4.0 | 2024-08-01 | [XXX](https://github.com/airbytehq/airbyte/pull/XXX)     | Add issue label event and issue weight event streams | 
 | 4.3.0 | 2024-07-31 | [42920](https://github.com/airbytehq/airbyte/pull/42920) | Migrate to CDK v4.1.0 |
 | 4.2.2 | 2024-07-27 | [42601](https://github.com/airbytehq/airbyte/pull/42601) | Update dependencies |
 | 4.2.1 | 2024-07-20 | [42295](https://github.com/airbytehq/airbyte/pull/42295) | Update dependencies |

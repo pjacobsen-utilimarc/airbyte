@@ -518,7 +518,7 @@ definitions:
             stream: "#/definitions/issues_stream"
             partition_field: "iid"
     transformations:
-      - "#/definitions/add_issue_id_field"
+      - "#/definitions/add_project_and_issue_id_field"
     $parameters:
       path: "projects/{{ stream_slice.parent_slice.id }}/issues/{{ stream_slice.iid }}/resource_label_events"
 
