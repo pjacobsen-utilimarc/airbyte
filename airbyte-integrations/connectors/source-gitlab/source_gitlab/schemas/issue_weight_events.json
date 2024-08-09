@@ -1,0 +1,93 @@
+{
+  "$schema":"https://json-schema.org/draft-07/schema#",
+  "type":"object",
+  "properties":{
+    "id":{
+      "description":"ID of the issue weight event.",
+      "type":[
+        "null",
+        "integer"
+      ]
+    },
+    "user":{
+      "description":"User who performed the weight action.",
+      "type":[
+        "null",
+        "object"
+      ],
+      "properties":{
+        "id":{
+          "description":"ID of the user who performed the action.",
+          "type":[
+            "null",
+            "integer"
+          ]
+        },
+        "name":{
+          "description":"Name of the user.",
+          "type":[
+            "null",
+            "string"
+          ]
+        },
+        "username":{
+          "description":"Username of the user.",
+          "type":[
+            "null",
+            "string"
+          ]
+        },
+        "state":{
+          "description":"State of the user account.",
+          "type":[
+            "null",
+            "string"
+          ]
+        },
+        "avatar_url":{
+          "description":"URL of the user's avatar.",
+          "type":[
+            "null",
+            "string"
+          ]
+        },
+        "web_url":{
+          "description":"URL to the user's profile.",
+          "type":[
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "created_at":{
+      "description":"Date and time when the event was created.",
+      "type":[
+        "null",
+        "string"
+      ],
+      "format":"date-time"
+    },
+    "issue_id":{
+      "description":"ID of the issue.",
+      "type":[
+        "null",
+        "string"
+      ]
+    },
+    "weight":{
+      "description":"Value of weight after the change.",
+      "type":[
+        "null",
+        "integer"
+      ]
+    },
+    "project_id":{
+      "description":"ID of the project.",
+      "type":[
+        "null",
+        "string"
+      ]
+    }
+  }
+}

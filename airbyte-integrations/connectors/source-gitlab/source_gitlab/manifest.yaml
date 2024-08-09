@@ -146,6 +146,16 @@ definitions:
         path: ["project_id"]
         value: "{{ stream_slice.id }}"
 
+  add_project_and_issue_id_field:
+    type: AddFields
+    fields:
+      - type: AddedFieldDefinition
+        path: ["issue_id"]
+        value: "{{ stream_slice.iid }}"
+      - type: AddedFieldDefinition
+        path: [ "project_id" ]
+        value: "{{ stream_slice.parent_slice.id }}"
+
   add_group_id_field:
     type: AddFields
     fields:
@@ -494,6 +504,42 @@ definitions:
     $parameters:
       path: "projects/{{ stream_slice.parent_slice.id }}/pipelines/{{ stream_slice.id }}/jobs"
 
+  issue_label_events_stream:
+    name: "issue_label_events"
+    $ref: "#/definitions/base_projects_child_stream"
+    primary_key: ["id"]
+    retriever:
+      $ref: "#/definitions/retriever"
+      partition_router:
+        type: SubstreamPartitionRouter
+        parent_stream_configs:
+          - type: ParentStreamConfig
+            parent_key: "iid"
+            stream: "#/definitions/issues_stream"
+            partition_field: "iid"
+    transformations:
+      - "#/definitions/add_issue_id_field"
+    $parameters:
+      path: "projects/{{ stream_slice.parent_slice.id }}/issues/{{ stream_slice.iid }}/resource_label_events"
+
+  issue_weight_events_stream:
+    name: "issue_weight_events"
+    $ref: "#/definitions/base_projects_child_stream"
+    primary_key: ["id"]
+    retriever:
+      $ref: "#/definitions/retriever"
+      partition_router:
+        type: SubstreamPartitionRouter
+        parent_stream_configs:
+          - type: ParentStreamConfig
+            parent_key: "iid"
+            stream: "#/definitions/issues_stream"
+            partition_field: "iid"
+    transformations:
+      - "#/definitions/add_project_and_issue_id_field"
+    $parameters:
+      path: "projects/{{ stream_slice.parent_slice.id }}/issues/{{ stream_slice.iid }}/resource_weight_events"
+
   # Incremental streams
   commits_stream:
     name: "commits"
@@ -601,6 +647,8 @@ streams:
   - "#/definitions/deployments_stream"
   - "#/definitions/commits_stream"
   - "#/definitions/issues_stream"
+  - "#/definitions/issue_label_events_stream"
+  - "#/definitions/issue_weight_events_stream"
   - "#/definitions/merge_requests_stream"
   - "#/definitions/merge_request_commits_stream"
   - "#/definitions/pipelines_stream"

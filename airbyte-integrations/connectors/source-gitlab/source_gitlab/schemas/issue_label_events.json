@@ -1,0 +1,144 @@
+{
+  "$schema":"https://json-schema.org/draft-07/schema#",
+  "type":"object",
+  "properties":{
+    "id":{
+      "description":"ID of the resource label event.",
+      "type":[
+        "null",
+        "integer"
+      ]
+    },
+    "user":{
+      "description":"User who performed the label action.",
+      "type":[
+        "null",
+        "object"
+      ],
+      "properties":{
+        "id":{
+          "description":"ID of the user who performed the merge.",
+          "type":[
+            "null",
+            "integer"
+          ]
+        },
+        "name":{
+          "description":"Name of the user.",
+          "type":[
+            "null",
+            "string"
+          ]
+        },
+        "username":{
+          "description":"Username of the user.",
+          "type":[
+            "null",
+            "string"
+          ]
+        },
+        "state":{
+          "description":"State of the user account.",
+          "type":[
+            "null",
+            "string"
+          ]
+        },
+        "avatar_url":{
+          "description":"URL of the user's avatar.",
+          "type":[
+            "null",
+            "string"
+          ]
+        },
+        "web_url":{
+          "description":"URL to the user's profile.",
+          "type":[
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "label":{
+      "description":"label details",
+      "type":[
+        "null",
+        "object"
+      ],
+      "properties":{
+        "id":{
+          "description":"ID of the label.",
+          "type":[
+            "null",
+            "integer"
+          ]
+        },
+        "name":{
+          "description":"Name of the label.",
+          "type":[
+            "null",
+            "string"
+          ]
+        },
+        "color":{
+          "description":"Color of the label.",
+          "type":[
+            "null",
+            "string"
+          ]
+        },
+        "description":{
+          "description":"Description of the label.",
+          "type":[
+            "null",
+            "string"
+          ]
+        }
+      }
+    },
+    "action":{
+      "description":"Action taken to the label. 'add' or 'remove'",
+      "type":[
+        "null",
+        "string"
+      ]
+    },
+    "issue_id":{
+      "description":"ID of Issue",
+      "type":[
+        "null",
+        "string"
+      ]
+    },
+    "created_at":{
+      "description":"Date and time when the event was created.",
+      "type":[
+        "null",
+        "string"
+      ],
+      "format":"date-time"
+    },
+    "project_id":{
+      "description":"ID of project",
+      "type":[
+        "null",
+        "integer"
+      ]
+    },
+    "resource_id":{
+      "description":"ID of resource",
+      "type":[
+        "null",
+        "integer"
+      ]
+    },
+    "resource_type":{
+      "description":"Type of resource",
+      "type":[
+        "null",
+        "string"
+      ]
+    }
+  }
+}
